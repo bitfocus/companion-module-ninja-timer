@@ -1,0 +1,25 @@
+{
+	"id": "ninja-timer",
+	"name": "Ninja Timer",
+	"shortname": "ninja-timer",
+	"description": "Control Ninja Timer countdown/countup timer for broadcasts and presentations",
+	"version": "1.0.0",
+	"license": "MIT",
+	"repository": "https://github.com/madebyjamstudios/companion-module-ninja-timer",
+	"bugs": "https://github.com/madebyjamstudios/companion-module-ninja-timer/issues",
+	"maintainers": [
+		{
+			"name": "Jam Studios",
+			"email": "support@jamstudios.com"
+		}
+	],
+	"legacyIds": [],
+	"runtime": {
+		"type": "node18",
+		"api": "nodejs-ipc",
+		"apiVersion": "0.0.0"
+	},
+	"manufacturer": "Jam Studios",
+	"products": ["Ninja Timer"],
+	"keywords": ["timer", "countdown", "broadcast", "osc"]
+}

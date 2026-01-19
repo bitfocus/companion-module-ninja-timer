@@ -1,0 +1,35 @@
+{
+  "name": "companion-module-ninja-timer",
+  "version": "1.2.0",
+  "main": "src/main.js",
+  "scripts": {
+    "format": "prettier -w .",
+    "package": "companion-module-build"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/madebyjamstudios/ninja-timer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitfocus/companion-module-ninja-timer.git"
+  },
+  "keywords": [
+    "bitfocus",
+    "companion",
+    "timer",
+    "countdown",
+    "broadcast"
+  ],
+  "engines": {
+    "node": "^22.20",
+    "yarn": "^4"
+  },
+  "dependencies": {
+    "@companion-module/base": "~1.14.1"
+  },
+  "devDependencies": {
+    "@companion-module/tools": "^2.5.0",
+    "prettier": "^3.7.4"
+  },
+  "prettier": "@companion-module/tools/.prettierrc.json",
+  "packageManager": "yarn@4.12.0"
+}
