@@ -4,13 +4,16 @@ module.exports = {
 	getPresets() {
 		const presets = {}
 
-		// Play/Pause Toggle
+		// =============================================
+		// 1. Timer — Playback controls + duration
+		// =============================================
+
 		presets['toggle'] = {
 			type: 'button',
-			category: 'Timer Control',
+			category: 'Timer',
 			name: 'Play/Pause Toggle',
 			style: {
-				text: 'PLAY\\nPAUSE',
+				text: '▶ PLAY\n⏸ PAUSE',
 				size: '18',
 				color: combineRgb(255, 255, 255),
 				bgcolor: combineRgb(0, 0, 0),
@@ -26,26 +29,25 @@ module.exports = {
 					feedbackId: 'running',
 					style: {
 						bgcolor: combineRgb(0, 200, 0),
-						text: 'PAUSE',
+						text: '⏸ PAUSE',
 					},
 				},
 				{
 					feedbackId: 'paused',
 					style: {
 						bgcolor: combineRgb(200, 200, 0),
-						text: 'RESUME',
+						text: '▶ RESUME',
 					},
 				},
 			],
 		}
 
-		// Start Button
 		presets['start'] = {
 			type: 'button',
-			category: 'Timer Control',
+			category: 'Timer',
 			name: 'Start Timer',
 			style: {
-				text: 'START',
+				text: '▶ Start',
 				size: '18',
 				color: combineRgb(255, 255, 255),
 				bgcolor: combineRgb(0, 100, 0),
@@ -59,13 +61,12 @@ module.exports = {
 			feedbacks: [],
 		}
 
-		// Pause Button
 		presets['pause'] = {
 			type: 'button',
-			category: 'Timer Control',
+			category: 'Timer',
 			name: 'Pause Timer',
 			style: {
-				text: 'PAUSE',
+				text: '⏸ Pause',
 				size: '18',
 				color: combineRgb(0, 0, 0),
 				bgcolor: combineRgb(200, 200, 0),
@@ -79,16 +80,15 @@ module.exports = {
 			feedbacks: [],
 		}
 
-		// Reset Button
 		presets['reset'] = {
 			type: 'button',
-			category: 'Timer Control',
+			category: 'Timer',
 			name: 'Reset Timer',
 			style: {
-				text: 'RESET',
+				text: '↺ Reset',
 				size: '18',
 				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(100, 100, 100),
+				bgcolor: combineRgb(80, 80, 80),
 			},
 			steps: [
 				{
@@ -99,13 +99,12 @@ module.exports = {
 			feedbacks: [],
 		}
 
-		// Stop Button
 		presets['stop'] = {
 			type: 'button',
-			category: 'Timer Control',
+			category: 'Timer',
 			name: 'Stop Timer',
 			style: {
-				text: 'STOP',
+				text: '⏹ Stop',
 				size: '18',
 				color: combineRgb(255, 255, 255),
 				bgcolor: combineRgb(200, 0, 0),
@@ -119,7 +118,256 @@ module.exports = {
 			feedbacks: [],
 		}
 
-		// Timer Display
+		// Add duration buttons
+		presets['add_10s'] = {
+			type: 'button',
+			category: 'Timer',
+			name: 'Add 10 Seconds',
+			style: {
+				text: '+0:10',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(0, 100, 100),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'addDuration', options: { amount: 10 } }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		presets['add_30s'] = {
+			type: 'button',
+			category: 'Timer',
+			name: 'Add 30 Seconds',
+			style: {
+				text: '+0:30',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(0, 100, 100),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'addDuration', options: { amount: 30 } }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		presets['add_1min'] = {
+			type: 'button',
+			category: 'Timer',
+			name: 'Add 1 Minute',
+			style: {
+				text: '+1:00',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(0, 100, 100),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'addDuration', options: { amount: 60 } }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		// Subtract duration buttons
+		presets['sub_10s'] = {
+			type: 'button',
+			category: 'Timer',
+			name: 'Subtract 10 Seconds',
+			style: {
+				text: '-0:10',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(150, 60, 0),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'addDuration', options: { amount: -10 } }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		presets['sub_30s'] = {
+			type: 'button',
+			category: 'Timer',
+			name: 'Subtract 30 Seconds',
+			style: {
+				text: '-0:30',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(150, 60, 0),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'addDuration', options: { amount: -30 } }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		presets['sub_1min'] = {
+			type: 'button',
+			category: 'Timer',
+			name: 'Subtract 1 Minute',
+			style: {
+				text: '-1:00',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(150, 60, 0),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'addDuration', options: { amount: -60 } }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		// Quick set duration buttons
+		presets['duration_5min'] = {
+			type: 'button',
+			category: 'Timer',
+			name: '5 Minutes',
+			style: {
+				text: '5:00',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(0, 70, 70),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'setDuration5min' }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		presets['duration_10min'] = {
+			type: 'button',
+			category: 'Timer',
+			name: '10 Minutes',
+			style: {
+				text: '10:00',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(0, 70, 70),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'setDuration10min' }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		presets['duration_15min'] = {
+			type: 'button',
+			category: 'Timer',
+			name: '15 Minutes',
+			style: {
+				text: '15:00',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(0, 70, 70),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'setDuration15min' }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		// =============================================
+		// 2. Select — Timer selection + navigation
+		// =============================================
+
+		presets['next_timer'] = {
+			type: 'button',
+			category: 'Select',
+			name: 'Next Timer',
+			style: {
+				text: 'Next ▸',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(0, 0, 150),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'nextTimer' }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		presets['prev_timer'] = {
+			type: 'button',
+			category: 'Select',
+			name: 'Previous Timer',
+			style: {
+				text: '◂ Prev',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(0, 0, 150),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'previousTimer' }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		// Timer Select Buttons (1-7)
+		for (let i = 1; i <= 7; i++) {
+			presets[`timer_${i}`] = {
+				type: 'button',
+				category: 'Select',
+				name: `Select Timer ${i}`,
+				style: {
+					text: `T${i}`,
+					size: '18',
+					color: combineRgb(255, 255, 255),
+					bgcolor: combineRgb(0, 50, 120),
+				},
+				steps: [
+					{
+						down: [{ actionId: 'selectTimer', options: { index: i } }],
+						up: [],
+					},
+				],
+				feedbacks: [
+					{
+						feedbackId: 'timerSelected',
+						options: { index: i },
+						style: {
+							bgcolor: combineRgb(0, 100, 200),
+						},
+					},
+				],
+			}
+		}
+
+		// =============================================
+		// 3. Display — Live info + display controls
+		// =============================================
+
 		presets['time_display'] = {
 			type: 'button',
 			category: 'Display',
@@ -154,7 +402,6 @@ module.exports = {
 			],
 		}
 
-		// Timer Name Display
 		presets['timer_name'] = {
 			type: 'button',
 			category: 'Display',
@@ -169,281 +416,27 @@ module.exports = {
 			feedbacks: [],
 		}
 
-		// Blackout Toggle
-		presets['blackout'] = {
+		presets['duration_display'] = {
 			type: 'button',
-			category: 'Display Control',
-			name: 'Blackout Toggle',
+			category: 'Display',
+			name: 'Duration Display',
 			style: {
-				text: 'BLACK\\nOUT',
-				size: '14',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(50, 50, 50),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'blackoutToggle' }],
-					up: [],
-				},
-			],
-			feedbacks: [
-				{
-					feedbackId: 'blackout',
-					style: {
-						bgcolor: combineRgb(0, 0, 0),
-						color: combineRgb(255, 0, 0),
-						text: 'BLACK\\nOUT',
-					},
-				},
-			],
-		}
-
-		// Flash
-		presets['flash'] = {
-			type: 'button',
-			category: 'Display Control',
-			name: 'Flash Display',
-			style: {
-				text: 'FLASH',
+				text: '$(ninja:duration_formatted)',
 				size: '18',
-				color: combineRgb(0, 0, 0),
-				bgcolor: combineRgb(255, 255, 0),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'flash' }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		// Next Timer
-		presets['next_timer'] = {
-			type: 'button',
-			category: 'Timer Selection',
-			name: 'Next Timer',
-			style: {
-				text: 'NEXT\\nTIMER',
-				size: '14',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 0, 100),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'nextTimer' }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		// Previous Timer
-		presets['prev_timer'] = {
-			type: 'button',
-			category: 'Timer Selection',
-			name: 'Previous Timer',
-			style: {
-				text: 'PREV\\nTIMER',
-				size: '14',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 0, 100),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'previousTimer' }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		// Add 1 Minute
-		presets['add_1min'] = {
-			type: 'button',
-			category: 'Duration Control',
-			name: 'Add 1 Minute',
-			style: {
-				text: '+1:00',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 100, 100),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'addDuration', options: { amount: 60 } }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		// Subtract 1 Minute
-		presets['sub_1min'] = {
-			type: 'button',
-			category: 'Duration Control',
-			name: 'Subtract 1 Minute',
-			style: {
-				text: '-1:00',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(100, 50, 0),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'addDuration', options: { amount: -60 } }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		// Timer Select Buttons (1-5)
-		for (let i = 1; i <= 5; i++) {
-			presets[`timer_${i}`] = {
-				type: 'button',
-				category: 'Timer Selection',
-				name: `Select Timer ${i}`,
-				style: {
-					text: `Timer\\n${i}`,
-					size: '14',
-					color: combineRgb(255, 255, 255),
-					bgcolor: combineRgb(0, 50, 100),
-				},
-				steps: [
-					{
-						down: [{ actionId: 'selectTimer', options: { index: i } }],
-						up: [],
-					},
-				],
-				feedbacks: [
-					{
-						feedbackId: 'timerSelected',
-						options: { index: i },
-						style: {
-							bgcolor: combineRgb(0, 100, 200),
-						},
-					},
-				],
-			}
-		}
-
-		// Hide Message
-		presets['hide_message'] = {
-			type: 'button',
-			category: 'Messages',
-			name: 'Hide Message',
-			style: {
-				text: 'HIDE\\nMSG',
-				size: '14',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(100, 0, 0),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'hideMessage' }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		// Show Message Buttons (1-3)
-		for (let i = 1; i <= 3; i++) {
-			presets[`message_${i}`] = {
-				type: 'button',
-				category: 'Messages',
-				name: `Show Message ${i}`,
-				style: {
-					text: `MSG\\n${i}`,
-					size: '14',
-					color: combineRgb(255, 255, 255),
-					bgcolor: combineRgb(100, 0, 100),
-				},
-				steps: [
-					{
-						down: [{ actionId: 'showMessage', options: { index: i } }],
-						up: [],
-					},
-				],
-				feedbacks: [],
-			}
-		}
-
-		// Warning Zone Indicator
-		presets['warning_indicator'] = {
-			type: 'button',
-			category: 'Status',
-			name: 'Warning Zone Indicator',
-			style: {
-				text: 'WARNING',
-				size: '14',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(50, 50, 50),
+				color: combineRgb(150, 150, 150),
+				bgcolor: combineRgb(30, 30, 30),
 			},
 			steps: [],
-			feedbacks: [
-				{
-					feedbackId: 'warningYellow',
-					style: {
-						bgcolor: combineRgb(255, 255, 0),
-						color: combineRgb(0, 0, 0),
-						text: 'YELLOW',
-					},
-				},
-				{
-					feedbackId: 'warningOrange',
-					style: {
-						bgcolor: combineRgb(255, 165, 0),
-						color: combineRgb(0, 0, 0),
-						text: 'ORANGE',
-					},
-				},
-			],
+			feedbacks: [],
 		}
 
-		// Timer Mode Display
-		presets['mode_display'] = {
-			type: 'button',
-			category: 'Status',
-			name: 'Timer Mode',
-			style: {
-				text: '$(ninja:timer_mode)',
-				size: '14',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 50, 100),
-			},
-			steps: [],
-			feedbacks: [
-				{
-					feedbackId: 'modeCountdown',
-					style: {
-						bgcolor: combineRgb(0, 100, 200),
-					},
-				},
-				{
-					feedbackId: 'modeCountup',
-					style: {
-						bgcolor: combineRgb(0, 150, 100),
-					},
-				},
-				{
-					feedbackId: 'modeTod',
-					style: {
-						bgcolor: combineRgb(150, 100, 0),
-					},
-				},
-			],
-		}
-
-		// Timer State Display
 		presets['state_display'] = {
 			type: 'button',
-			category: 'Status',
+			category: 'Display',
 			name: 'Timer State',
 			style: {
 				text: '$(ninja:state)',
-				size: '14',
+				size: '18',
 				color: combineRgb(255, 255, 255),
 				bgcolor: combineRgb(50, 50, 50),
 			},
@@ -478,68 +471,175 @@ module.exports = {
 			],
 		}
 
-		// Overtime Toggle
-		presets['overtime_toggle'] = {
+		presets['mode_display'] = {
 			type: 'button',
-			category: 'Settings',
-			name: 'Overtime Toggle',
+			category: 'Display',
+			name: 'Timer Mode',
 			style: {
-				text: 'OVERTIME\\nOFF',
-				size: '14',
+				text: '$(ninja:timer_mode)',
+				size: '18',
 				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(80, 80, 80),
+				bgcolor: combineRgb(0, 50, 100),
 			},
-			steps: [
-				{
-					down: [{ actionId: 'toggleOvertime' }],
-					up: [],
-				},
-			],
+			steps: [],
 			feedbacks: [
 				{
-					feedbackId: 'overtimeAllowed',
+					feedbackId: 'modeCountdown',
 					style: {
-						bgcolor: combineRgb(200, 100, 0),
-						text: 'OVERTIME\\nON',
+						bgcolor: combineRgb(0, 100, 200),
+					},
+				},
+				{
+					feedbackId: 'modeCountup',
+					style: {
+						bgcolor: combineRgb(0, 150, 100),
+					},
+				},
+				{
+					feedbackId: 'modeTod',
+					style: {
+						bgcolor: combineRgb(150, 100, 0),
 					},
 				},
 			],
 		}
 
-		// Scheduled Timer Indicator
-		presets['scheduled_indicator'] = {
+		presets['warning_indicator'] = {
 			type: 'button',
-			category: 'Status',
-			name: 'Scheduled Timer',
+			category: 'Display',
+			name: 'Warning Zone Indicator',
 			style: {
-				text: 'NOT\\nSCHED',
+				text: 'WARNING',
 				size: '14',
-				color: combineRgb(150, 150, 150),
+				color: combineRgb(255, 255, 255),
 				bgcolor: combineRgb(50, 50, 50),
 			},
 			steps: [],
 			feedbacks: [
 				{
-					feedbackId: 'hasTargetTime',
+					feedbackId: 'warningYellow',
 					style: {
-						bgcolor: combineRgb(100, 50, 150),
-						color: combineRgb(255, 255, 255),
-						text: 'SCHED',
+						bgcolor: combineRgb(255, 255, 0),
+						color: combineRgb(0, 0, 0),
+						text: 'YELLOW',
+					},
+				},
+				{
+					feedbackId: 'warningOrange',
+					style: {
+						bgcolor: combineRgb(255, 165, 0),
+						color: combineRgb(0, 0, 0),
+						text: 'ORANGE',
 					},
 				},
 			],
 		}
 
-		// Profile Navigation
-		presets['next_profile'] = {
+		presets['blackout'] = {
 			type: 'button',
-			category: 'Profile',
-			name: 'Next Profile',
+			category: 'Display',
+			name: 'Blackout Toggle',
 			style: {
-				text: 'NEXT\\nPROFILE',
+				text: '⬛ Blackout',
 				size: '14',
 				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(100, 0, 100),
+				bgcolor: combineRgb(50, 50, 50),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'blackoutToggle' }],
+					up: [],
+				},
+			],
+			feedbacks: [
+				{
+					feedbackId: 'blackout',
+					style: {
+						bgcolor: combineRgb(0, 0, 0),
+						color: combineRgb(255, 0, 0),
+						text: '⬛ Blackout',
+					},
+				},
+			],
+		}
+
+		presets['flash'] = {
+			type: 'button',
+			category: 'Display',
+			name: 'Flash Display',
+			style: {
+				text: '⚡ Flash',
+				size: '18',
+				color: combineRgb(0, 0, 0),
+				bgcolor: combineRgb(255, 255, 0),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'flash' }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		// =============================================
+		// 4. Messages — Message display controls
+		// =============================================
+
+		presets['hide_message'] = {
+			type: 'button',
+			category: 'Messages',
+			name: 'Hide Message',
+			style: {
+				text: '✕ Hide',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(120, 0, 0),
+			},
+			steps: [
+				{
+					down: [{ actionId: 'hideMessage' }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		// Show Message Buttons (1-4)
+		for (let i = 1; i <= 4; i++) {
+			presets[`message_${i}`] = {
+				type: 'button',
+				category: 'Messages',
+				name: `Show Message ${i}`,
+				style: {
+					text: `Msg ${i}`,
+					size: '18',
+					color: combineRgb(255, 255, 255),
+					bgcolor: combineRgb(140, 0, 140),
+				},
+				steps: [
+					{
+						down: [{ actionId: 'showMessage', options: { index: i } }],
+						up: [],
+					},
+				],
+				feedbacks: [],
+			}
+		}
+
+		// =============================================
+		// 5. Profiles — Profile nav + settings
+		// =============================================
+
+		presets['next_profile'] = {
+			type: 'button',
+			category: 'Profiles',
+			name: 'Next Profile',
+			style: {
+				text: 'Next ▸',
+				size: '18',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(100, 0, 150),
 			},
 			steps: [
 				{
@@ -552,13 +652,13 @@ module.exports = {
 
 		presets['prev_profile'] = {
 			type: 'button',
-			category: 'Profile',
+			category: 'Profiles',
 			name: 'Previous Profile',
 			style: {
-				text: 'PREV\\nPROFILE',
-				size: '14',
+				text: '◂ Prev',
+				size: '18',
 				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(100, 0, 100),
+				bgcolor: combineRgb(100, 0, 150),
 			},
 			steps: [
 				{
@@ -569,111 +669,68 @@ module.exports = {
 			feedbacks: [],
 		}
 
-		// Profile Name Display
 		presets['profile_display'] = {
 			type: 'button',
-			category: 'Profile',
+			category: 'Profiles',
 			name: 'Profile Name',
 			style: {
 				text: '$(ninja:profile_name)',
 				size: '14',
 				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(50, 0, 50),
+				bgcolor: combineRgb(50, 0, 70),
 			},
 			steps: [],
 			feedbacks: [],
 		}
 
-		// Quick Duration Buttons
-		presets['duration_5min'] = {
+		presets['overtime_toggle'] = {
 			type: 'button',
-			category: 'Duration Control',
-			name: '5 Minutes',
+			category: 'Profiles',
+			name: 'Overtime Toggle',
 			style: {
-				text: '5:00',
+				text: 'Overtime',
 				size: '18',
 				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 80, 80),
+				bgcolor: combineRgb(50, 50, 50),
 			},
 			steps: [
 				{
-					down: [{ actionId: 'setDuration5min' }],
+					down: [{ actionId: 'toggleOvertime' }],
 					up: [],
 				},
 			],
-			feedbacks: [],
-		}
-
-		presets['duration_10min'] = {
-			type: 'button',
-			category: 'Duration Control',
-			name: '10 Minutes',
-			style: {
-				text: '10:00',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 80, 80),
-			},
-			steps: [
+			feedbacks: [
 				{
-					down: [{ actionId: 'setDuration10min' }],
-					up: [],
+					feedbackId: 'overtimeAllowed',
+					style: {
+						bgcolor: combineRgb(200, 100, 0),
+						text: 'Overtime',
+					},
 				},
 			],
-			feedbacks: [],
 		}
 
-		presets['duration_15min'] = {
+		presets['scheduled_indicator'] = {
 			type: 'button',
-			category: 'Duration Control',
-			name: '15 Minutes',
+			category: 'Profiles',
+			name: 'Scheduled Timer',
 			style: {
-				text: '15:00',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 80, 80),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'setDuration15min' }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		presets['duration_30min'] = {
-			type: 'button',
-			category: 'Duration Control',
-			name: '30 Minutes',
-			style: {
-				text: '30:00',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 80, 80),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'setDuration30min' }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		// Duration Display
-		presets['duration_display'] = {
-			type: 'button',
-			category: 'Display',
-			name: 'Duration Display',
-			style: {
-				text: '$(ninja:duration_formatted)',
+				text: 'Sched',
 				size: '18',
 				color: combineRgb(150, 150, 150),
-				bgcolor: combineRgb(30, 30, 30),
+				bgcolor: combineRgb(50, 50, 50),
 			},
 			steps: [],
-			feedbacks: [],
+			feedbacks: [
+				{
+					feedbackId: 'hasTargetTime',
+					style: {
+						bgcolor: combineRgb(100, 50, 150),
+						color: combineRgb(255, 255, 255),
+						text: 'Sched',
+					},
+				},
+			],
 		}
 
 		return presets
