@@ -5,11 +5,11 @@
 	"description": "Control Ninja Timer countdown/countup timer for broadcasts and presentations",
 	"version": "1.0.0",
 	"license": "MIT",
-	"repository": "https://github.com/madebyjamstudios/companion-module-ninja-timer",
-	"bugs": "https://github.com/madebyjamstudios/companion-module-ninja-timer/issues",
+	"repository": "https://github.com/bitfocus/companion-module-ninja-timer",
+	"bugs": "https://github.com/bitfocus/companion-module-ninja-timer/issues",
 	"maintainers": [
 		{
-			"name": "Jam Studios",
+			"name": "MBJ Studios",
 			"email": "support@jamstudios.com"
 		}
 	],
@@ -20,7 +20,7 @@
 		"apiVersion": "0.0.0",
 		"entrypoint": "../src/main.js"
 	},
-	"manufacturer": "Made by Jam Studios",
+	"manufacturer": "MBJ Studios",
 	"products": ["Ninja Timer"],
 	"keywords": ["timer", "countdown", "broadcast", "osc"]
 }

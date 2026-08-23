@@ -1,6 +1,6 @@
 # Ninja Timer Companion Module
 
-Control [Ninja Timer](https://github.com/madebyjamstudios/ninja-timer) - a professional countdown/countup timer for broadcasts and presentations.
+Control Ninja Timer, a professional countdown/countup timer for broadcasts and presentations.
 
 ## Configuration
 
