@@ -7,7 +7,7 @@
     "package": "companion-module-build"
   },
   "license": "MIT",
-  "homepage": "https://github.com/madebyjamstudios/ninja-timer",
+  "homepage": "https://github.com/bitfocus/companion-module-ninja-timer",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bitfocus/companion-module-ninja-timer.git"
